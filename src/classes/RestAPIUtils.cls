@@ -3,6 +3,8 @@ public with sharing class RestAPIUtils {
     static public String QUERY_API_URL = SF_HOST + '/services/data/v38.0/tooling/query/?q=';
     static public String SOBJECT_API_URL = SF_HOST + '/services/data/v38.0/sobjects/';
 
+    public class APIException extends Exception {}
+
     /**
      * Helper function to call the SF Rest API
      * */
