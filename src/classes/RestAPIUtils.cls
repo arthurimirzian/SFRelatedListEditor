@@ -107,7 +107,7 @@ public with sharing class RestAPIUtils {
             }
         }
 
-        return null;
+        return new List<Object>();
     }
 
 
