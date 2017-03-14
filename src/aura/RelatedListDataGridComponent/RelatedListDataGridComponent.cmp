@@ -11,6 +11,8 @@
     
     <aura:attribute name="displayMode" type="String" default="read"/>
     
+    <aura:attribute name="sortOrder" type="String" default="ASC" />
+    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="force:refreshView" action="{!c.doInit}" />    
     
@@ -41,7 +43,7 @@
                 <thead>
                     <tr class="slds-text-title--caps">
                         <aura:iteration items="{!v.columns}" var="column">
-                            <th scope="col">
+                            <th scope="col" onclick="{!c.orderList}"> 
                                 <div class="slds-truncate" 
                                      title="{!column.label}">
                                     {!column.label}

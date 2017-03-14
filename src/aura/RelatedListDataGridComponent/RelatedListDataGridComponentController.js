@@ -113,5 +113,18 @@
         });
         
         createRecordEvent.fire();
+    },
+    
+    orderList : function(component, event, helper)
+    {
+        debugger;
+        var objectList = component.get("v.items");
+		var columnLabel = event.target.title;
+        
+        if (objectList && objectList.length > 0 && columnLabel)
+        {
+			helper.orderList(component, objectList, columnLabel);            
+        }
+       	
     }
 })
