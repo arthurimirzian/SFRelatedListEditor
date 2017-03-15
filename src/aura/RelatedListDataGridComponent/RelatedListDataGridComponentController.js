@@ -117,13 +117,40 @@
     
     orderList : function(component, event, helper)
     {
-        debugger;
         var objectList = component.get("v.items");
-		var columnLabel = event.target.title;
+		var columnLabel = event.target.id;
+		
+        var target;
+        if (columnLabel === "")
+        {
+            target = event.target.children[0].children[0];
+        }
+        else
+        {
+            target = event.target.children[0];
+        }
+		
         
         if (objectList && objectList.length > 0 && columnLabel)
         {
 			helper.orderList(component, objectList, columnLabel);            
+        }
+        
+        if (component.get("v.previousColumn"))
+        {
+            $A.util.removeClass(component.get("v.previousColumn"), 'desc-sort-icon');
+            $A.util.removeClass(component.get("v.previousColumn"), 'asc-sort-icon');                
+        }
+        
+        if (component.get("v.sortOrder") === "DESC")
+        {
+            $A.util.addClass(target, 'desc-sort-icon');                    
+            component.set("v.previousColumn", target);                
+        }
+        else
+        {            
+            $A.util.addClass(target, 'asc-sort-icon');        
+            component.set("v.previousColumn", target);
         }
        	
     }

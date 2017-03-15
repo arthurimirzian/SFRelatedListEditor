@@ -107,14 +107,17 @@
     },
     getColumnIndexFromLabel : function(component, objectList, columnLabel)
     {
-        debugger;
-        if (columnLabel === "Contact Name")
-        {
-            columnLabel = "Name";
-            if (component.get("v.sortOrder") === "ASC")
+        if (component.get("v.sortOrder") === "ASC")
         {
             objectList.sort(function (obj1, obj2) {
-                
+                if (!obj1[columnLabel])
+                {
+                    return 1;
+                }
+                else if (!obj2[columnLabel])
+                {
+                    return -1;
+                }
                 return obj1[columnLabel].localeCompare(obj2[columnLabel]);
             });
             component.set("v.sortOrder", "DESC");
@@ -122,6 +125,15 @@
         else
         {
             objectList.sort(function (obj1, obj2) {
+                if (!obj1[columnLabel])
+                {
+                    return -1;
+                }
+                else if (!obj2[columnLabel])
+                {
+                    return 1;
+                }
+                
                 if (obj1[columnLabel].localeCompare(obj2[columnLabel]) === 1)
                 {
                     return -1;
@@ -134,9 +146,9 @@
             });
             component.set("v.sortOrder", "ASC");
         }
-
+        
         component.set("v.items", objectList);
-        }  
+        
     },
     
     orderList : function(component, objectList, columnLabel)

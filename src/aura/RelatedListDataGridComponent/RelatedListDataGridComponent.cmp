@@ -12,7 +12,8 @@
     <aura:attribute name="displayMode" type="String" default="read"/>
     
     <aura:attribute name="sortOrder" type="String" default="ASC" />
-    
+    <aura:attribute name="previousColumn" type="Object" />
+
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="force:refreshView" action="{!c.doInit}" />    
     
@@ -38,15 +39,17 @@
                                       alternativeText="Create New Record" />                
             </div>
         </div>
-        <div class="slds-card__body">
+        <div class="slds-card__body tableContainer">
             <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer">
                 <thead>
                     <tr class="slds-text-title--caps">
                         <aura:iteration items="{!v.columns}" var="column">
                             <th scope="col" onclick="{!c.orderList}"> 
                                 <div class="slds-truncate" 
-                                     title="{!column.label}">
+                                     title="{!column.label}"
+                                     id="{!column.fieldApiName}">
                                     {!column.label}
+                                    <div class="" src=""/>
                                 </div>
                             </th>
                         </aura:iteration>                           

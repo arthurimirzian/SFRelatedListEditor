@@ -6,10 +6,47 @@
     display: none;
 }
 
+.THIS th
+{
+    cursor: pointer;
+}
+
+.THIS th:hover
+{
+    background-color: #f2f3f3;
+}
+
 .THIS .hidden{
     display: none;
 }
 
 .THIS .slds-button--brand{
     margin-left: 1rem !important;
+}
+
+.THIS .tableContainer
+{
+    overflow: auto;
+}
+
+.THIS .asc-sort-icon
+{
+    background: transparent url(/img/support/servicedesk/sortArrows_sprite.png) no-repeat 0 top;
+    width: 11px;
+    height: 11px;
+    background-position: 0 -16px;
+    margin-left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.THIS .desc-sort-icon
+{
+    background-position: 0 1px;
+    background: transparent url(/img/support/servicedesk/sortArrows_sprite.png) no-repeat 0 top;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
 }
